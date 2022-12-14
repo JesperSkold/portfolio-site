@@ -11,7 +11,7 @@ const BookContainer = styled.main`
 `
 
 const Book = styled.article`
-text-align: center;
+  text-align: center;
 `
 
 const BooksPage = ({ data }) => {
@@ -20,13 +20,15 @@ const BooksPage = ({ data }) => {
     <Layout>
       <Link to="/">Till startsidan</Link>
       <BookContainer>
-      <h1>Books</h1>
-      {data.allContentfulBook.nodes.map((book) => (
-        <Book key={book.id}>
-        <h2 key={book.id}>{book.title}</h2>
-        <img src={book.image.file.url} alt="" />
-        </Book>
-      ))}
+        <h1>Books</h1>
+        {data.allContentfulBook.nodes.map((book) => (
+          <Link to={`/book/${book.id}/${book.slug}`}>
+            <Book key={book.id}>
+              <h2 key={book.id}>{book.title}</h2>
+              <img src={book.image.file.url} alt="" />
+            </Book>
+          </Link>
+        ))}
       </BookContainer>
     </Layout>
   )
@@ -60,6 +62,7 @@ export const BooksPageQuery = graphql`
         publicationDate
         weight
         id
+        slug
       }
     }
   }

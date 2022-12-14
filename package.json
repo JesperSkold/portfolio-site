@@ -25,6 +25,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "react-responsive": "^9.0.2",
     "styled-components": "^5.3.6"
   }
 }

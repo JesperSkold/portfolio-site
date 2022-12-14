@@ -1,21 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-
-const IndexPage = ({ data }) => {
+const Privacy = ({ data }) => {
   return (
     <Layout>
-      <h1>{data.contentfulHome.title}</h1>
-      <p>{data.contentfulHome.description.description}</p>
+      <h1>{data.contentfulPrivacy.title}</h1>
+      <p>{data.contentfulPrivacy.description.description}</p>
     </Layout>
   )
 }
 
-export default IndexPage
+export default Privacy
 
-export const IndexPagePageQuery = graphql`
+export const PrivacyPageQuery = graphql`
   query {
-    contentfulHome {
+    contentfulPrivacy {
       description {
         description
       }

@@ -1,23 +1,37 @@
 import React from "react"
-import { StyledNav, StyledLi, StyledUl } from "./style"
+import {
+  StyledNav,
+  Title,
+  StyledBurger,
+  MobileLinks,
+  DesktopLinks,
+} from "./style"
+import { useState } from "react"
+import Links from "./links"
+import MediaQuery from "react-responsive"
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false)
   return (
     <StyledNav>
-      <StyledUl>
-        <StyledLi>
-          <a href="">STUFF</a>
-        </StyledLi>
-        <StyledLi>
-          <a href="">STUFF</a>
-        </StyledLi>
-        <StyledLi>
-          <a href="">STUFF</a>
-        </StyledLi>
-        <StyledLi>
-          <a href="">STUFF</a>
-        </StyledLi>
-      </StyledUl>
+      <Title>Chomping Chapters</Title>
+      <MediaQuery minWidth={850}>
+        <DesktopLinks>
+          <Links></Links>
+        </DesktopLinks>
+      </MediaQuery>
+      <MediaQuery maxWidth={850}>
+        <StyledBurger open={open} onClick={() => setOpen(!open)}>
+          <div />
+          <div />
+          <div />
+        </StyledBurger>
+        {open && (
+          <MobileLinks>
+            <Links></Links>
+          </MobileLinks>
+        )}
+      </MediaQuery>
     </StyledNav>
   )
 }

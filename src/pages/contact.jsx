@@ -1,21 +1,20 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
-
-const IndexPage = ({ data }) => {
+const Contact = ({ data }) => {
   return (
     <Layout>
-      <h1>{data.contentfulHome.title}</h1>
-      <p>{data.contentfulHome.description.description}</p>
+      <h1>{data.contentfulContact.title}</h1>
+      <p>{data.contentfulContact.description.description}</p>
     </Layout>
   )
 }
 
-export default IndexPage
+export default Contact
 
-export const IndexPagePageQuery = graphql`
+export const ContactPageQuery = graphql`
   query {
-    contentfulHome {
+    contentfulContact {
       description {
         description
       }
