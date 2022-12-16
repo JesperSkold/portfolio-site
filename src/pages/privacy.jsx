@@ -1,11 +1,14 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
+import { StyledMain } from "../components/styles/reusables"
 const Privacy = ({ data }) => {
   return (
     <Layout>
-      <h1>{data.contentfulPrivacy.title}</h1>
-      <p>{data.contentfulPrivacy.description.description}</p>
+      <StyledMain>
+        <h1>{data.contentfulPrivacy.title}</h1>
+        <p>{data.contentfulPrivacy.description.description}</p>
+      </StyledMain>
     </Layout>
   )
 }

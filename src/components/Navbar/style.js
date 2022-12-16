@@ -92,7 +92,10 @@ export const MobileLinks = styled.ul`
   background: ${colors.secondaryLight};
   li {
     list-style: none;
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
+    a{
+      font-size: 24px;
+    }
   }
 
   li:first-child {
