@@ -10,10 +10,10 @@ const Wrapper = styled.div`
   width: 100%;
   background-size: cover;
   background-position: center bottom;
-  color: white;
-`
+  `
 
 const Main = styled.main`
+color: white;
 display: flex;
 flex-direction: column;
 justify-content: center;
@@ -36,8 +36,7 @@ a{
 const IndexPage = ({ data }) => {
   console.log(data, "INDEX")
   return (
-    <Layout>
-      <Wrapper img={data.contentfulHome.backgroundImage.file.url}>
+    <Layout background={data.contentfulHome.backgroundImage.file.url}>
         <Main>
           <h1>{data.contentfulHome.title}</h1>
           <h2>{data.contentfulHome.subtitle}</h2>
@@ -45,7 +44,6 @@ const IndexPage = ({ data }) => {
           <Button>PROJECTS</Button>
           </Link>
         </Main>
-      </Wrapper>
     </Layout>
   )
 }
