@@ -1,36 +1,76 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
-import { StyledMain } from "../components/styles/reusables"
-import { documentToHtmlString } from "@contentful/rich-text-html-renderer"
+import styled from "styled-components"
+import { Button } from "../components/styles/reusables.js"
+const Wrapper = styled.div`
+  background-image: url(${({ img }) => img && img});
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center bottom;
+  color: white;
+`
+
+const Main = styled.main`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+margin: 0 2rem;
+text-align: center;
+
+h1{
+  font-size: 64px;
+  margin: 10% 0 0 0;
+}
+h2{
+  font-size: 36px;
+}
+a{
+  text-decoration: none;
+}
+`
 
 const IndexPage = ({ data }) => {
   console.log(data, "INDEX")
   return (
     <Layout>
-      <StyledMain>
-        <h1>{data.contentfulHome.title}</h1>
-        <div
-          dangerouslySetInnerHTML={{
-            __html: documentToHtmlString(
-              JSON.parse(data.contentfulHome.description.raw)
-            ),
-          }}
-        ></div>
-      </StyledMain>
+      <Wrapper img={data.contentfulHome.backgroundImage.file.url}>
+        <Main>
+          <h1>{data.contentfulHome.title}</h1>
+          <h2>{data.contentfulHome.subtitle}</h2>
+          <Link to="/projects">
+          <Button>PROJECTS</Button>
+          </Link>
+        </Main>
+      </Wrapper>
     </Layout>
   )
 }
 
 export default IndexPage
 
+export const Head = ({data}) => <title>{data.contentfulHome.title}</title>
+
 export const IndexPagePageQuery = graphql`
   query {
     contentfulHome {
-      description {
-        raw
-      }
       title
+      subtitle
+      backgroundImage {
+        file {
+          url
+        }
+      }
     }
   }
+  #   contentfulHome {
+  #     description {
+  #       raw
+  #     }
+  #     title
+  #   }
+  # }
 `

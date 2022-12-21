@@ -71,13 +71,13 @@ const Contact = ({ data }) => {
 
 export default Contact
 
-export const ContactPageQuery = graphql`
-  query {
-    contentfulContact {
-      description {
-        description
-      }
-      title
-    }
-  }
-`
+// export const ContactPageQuery = graphql`
+//   query {
+//     contentfulContact {
+//       description {
+//         description
+//       }
+//       title
+//     }
+//   }
+// `

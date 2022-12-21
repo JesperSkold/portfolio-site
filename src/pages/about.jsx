@@ -17,13 +17,13 @@ const About = ({ data }) => {
 
 export default About
 
-export const AboutPageQuery = graphql`
-query {
-  contentfulAbout {
-    title
-    description {
-      description
-    }
-  }
-}
-`
+// export const AboutPageQuery = graphql`
+// query {
+//   contentfulAbout {
+//     title
+//     description {
+//       description
+//     }
+//   }
+// }
+// `
