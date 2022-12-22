@@ -4,7 +4,8 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
+import { useState, useRef } from "react"
+import { useEffect } from "react"
 export const Projects = styled.main``
 
 export const Project = styled.article`
@@ -13,13 +14,13 @@ export const Project = styled.article`
   margin: 5rem 0;
   gap: 1rem;
 
-  &:first-child{
-    margin-top: 0;
+  &:first-child {
+    margin-top: 3rem;
   }
   img {
     object-position: center top;
   }
-  h3{
+  h3 {
     margin-top: 0;
   }
 `
@@ -42,38 +43,74 @@ const Wrapper = styled.div`
 `
 
 const Categories = styled.div`
-display: flex;
-justify-content: center;
-gap: 1rem;
-h3:first-child{
-  border-bottom: 1px solid white;
-}
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+`
+
+const Category = styled.h3`
+  border-bottom: ${({ highlight }) => highlight && "3px solid #6C50F6"};
+  cursor: pointer;
+  padding: 3px;
+  margin: 0 -3px;
 `
 
 const ProjectsPage = ({ data }) => {
   const projects = data.allContentfulProject.nodes
   const categories = data.allContentfulCategory.nodes
-  console.log(data)
+  const [filter, setFilter] = useState(null)
+  const [highlight, setHighlight] = useState()
   return (
     <Layout background={data.contentfulProjectsPage.backgroundImage.file.url}>
       <Wrapper>
         <h1>{data.contentfulProjectsPage.title}</h1>
         <Categories>
-          <h3>All</h3>
+          <Category
+            onClick={(e) => {
+              setFilter(null)
+              setHighlight(e.target.innerText)
+            }}
+            highlight={filter === null}
+          >
+            All
+          </Category>
           {categories.map((category) => (
-            <h3>{category.category}</h3>
+            <Category
+              key={category.category}
+              onClick={(e) => {
+                setFilter(e.target.innerText)
+                setHighlight(e.target.innerText)
+              }}
+              highlight={category.category === highlight}
+            >
+              {category.category}
+            </Category>
           ))}
         </Categories>
         <Projects>
-          {projects.map((project) => (
-            <Project key={project.title}>
-              <TextContainer>
-                <ProjectTitle>{project.title}</ProjectTitle>
-                <Description>{project.shortDescription}</Description>
-              </TextContainer>
-              <GatsbyImage image={getImage(project.thumbnail)} alt="" />
-            </Project>
-          ))}
+          {projects.map((project) =>
+            project.category.map((category) =>
+              category.category === filter ? (
+                <Project key={project.title}>
+                  <TextContainer>
+                    <ProjectTitle>{project.title}</ProjectTitle>
+                    <Description>{project.shortDescription}</Description>
+                  </TextContainer>
+                  <GatsbyImage image={getImage(project.thumbnail)} alt="" />
+                </Project>
+              ) : (
+                filter === null && (
+                  <Project key={project.title}>
+                    <TextContainer>
+                      <ProjectTitle>{project.title}</ProjectTitle>
+                      <Description>{project.shortDescription}</Description>
+                    </TextContainer>
+                    <GatsbyImage image={getImage(project.thumbnail)} alt="" />
+                  </Project>
+                )
+              )
+            )
+          )}
         </Projects>
       </Wrapper>
     </Layout>
