@@ -17,7 +17,9 @@ const Project = ({ project }) => {
         <ProjectTitle>{project.title}</ProjectTitle>
         <Description>{project.shortDescription}</Description>
         <LinkContainer>
-          <Button>Read more</Button>
+          <Link to={project.slug}>
+            <Button>Read more</Button>
+          </Link>
           <Links>
             {project.deployedSite && (
               <Link to={project.deployedSite}>

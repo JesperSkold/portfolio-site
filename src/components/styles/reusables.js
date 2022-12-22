@@ -1,28 +1,26 @@
 import styled from "styled-components"
-import colors from "../../theme/colors"
 
-export const StyledMain = styled.main`
+export const Background = styled.div`
+ /* backgrounds by SVGBackgrounds.com and app.haikei.app  */
+  background-image: url(${({ background }) => background && background});
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: ${({ position }) => position ? position : "50% 100%"};
+  /* background-position: 40% 70%; */
+  /* background-position: 50% 100%; */
+  z-index: -999;
+`
+
+export const Wrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
-
   h1 {
-    /* text-align: center; */
-  }
-
-  h3,
-  h1 {
-    margin: 0;
-    color: black;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  @media (max-width: 768px) {
-    padding: 0;
-    margin: 1rem;
+    text-align: center;
+    margin-bottom: 0;
   }
 `
 

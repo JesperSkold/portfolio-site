@@ -10,6 +10,10 @@ export const ProjectContainer = styled.article`
   margin: 5rem 0;
   gap: 1rem;
 
+  a {
+    text-decoration: none;
+  }
+
   &:first-child {
     margin-top: 3rem;
   }

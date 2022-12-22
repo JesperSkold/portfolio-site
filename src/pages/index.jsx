@@ -3,14 +3,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { Button } from "../components/styles/reusables.js"
-const Wrapper = styled.div`
-  background-image: url(${({ img }) => img && img});
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-size: cover;
-  background-position: center bottom;
-  `
+import { Background } from "../components/styles/reusables"
 
 const Main = styled.main`
 color: white;
@@ -36,7 +29,8 @@ a{
 const IndexPage = ({ data }) => {
   console.log(data, "INDEX")
   return (
-    <Layout background={data.contentfulHome.backgroundImage.file.url}>
+    <Layout>
+      <Background background={data.contentfulHome.backgroundImage.file.url} position={"40% 70%"}/>
         <Main>
           <h1>{data.contentfulHome.title}</h1>
           <h2>{data.contentfulHome.subtitle}</h2>

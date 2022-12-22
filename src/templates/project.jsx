@@ -3,102 +3,30 @@ import { graphql, Link } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import colors from "../theme/colors"
-import { Button } from "../components/styles/reusables"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-const BookMetaContainer = styled.aside`
-  background-color: ${colors.secondaryLight};
-  color: white;
-  p {
-    padding: 0.5rem 1rem;
-  }
-  height: fit-content;
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-    p {
-      padding: 0 1rem;
-    }
-  }
-  img {
-    width: 100%;
-  }
+import { Wrapper } from "../components/styles/reusables"
+import { Background } from "../components/styles/reusables"
+const ImageContainer = styled.div`
+img{
+}
+display: flex;
+flex-direction: column;
+align-items: center;
 `
-const BookMainInfo = styled.div`
-  margin: 0 2rem;
-  width: 80%;
-  h1 {
-    margin: 0;
-  }
-  div {
-    display: flex;
-    align-items: center;
-
-    button {
-      margin-left: 2rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`
-const BookContainer = styled.section`
-  display: flex;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-  }
-`
-
-const Wrapper = styled.main`
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-`
-
-const AuthorBook = styled.article`
-  margin: 0 1rem;
-
-  /* img {
-    width: auto;
-    height: 300px;
-  } */
-`
-
-const BooksByAuthor = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  h1 {
-    /* margin-top: 0; */
-    text-align: center;
-  }
-
-  a {
-    color: black;
-    text-decoration: none;
-  }
-`
-
-const RelatedBooks = styled.section``
 
 const Project = ({ data }) => {
+  const project = data.contentfulProject
   console.log("yo", data)
-  const book = data.contentfulBook
-  // const [first, setfirst] = useState(second)
   return (
     <Layout>
+      <Background background={data.contentfulSingleProjectPage.backgroundImage.file.url} position={"10% 50%"}/>
       <Wrapper>
-        <BookContainer>
-          <BookMetaContainer></BookMetaContainer>
-          <BookMainInfo></BookMainInfo>
-        </BookContainer>
-
-        <BooksByAuthor></BooksByAuthor>
+        <h1>{project.title}</h1>
+        <ImageContainer>
+        {/* <GatsbyImage image={getImage(project.thumbnail)} alt="" /> */}
+        <GatsbyImage image={getImage(project.image1)} alt="" />
+        <GatsbyImage image={getImage(project.image2)} alt="" />
+        </ImageContainer>
       </Wrapper>
     </Layout>
   )
@@ -108,5 +36,31 @@ export default Project
 
 export const Head = () => <title>Dynamiskt</title>
 
-// export const query = graphql`
-// `
+export const query = graphql`
+  query ProjectQuery($slug: String) {
+    contentfulProject(slug: { eq: $slug }) {
+      title
+      repository
+      deployedSite
+      longDescription {
+        longDescription
+      }
+      thumbnail {
+        gatsbyImageData(formats: WEBP, height: 400)
+      }
+      image1 {
+        gatsbyImageData(formats: WEBP, width:700)
+      }
+      image2 {
+        gatsbyImageData(formats: WEBP, width:700)
+      }
+    }
+    contentfulSingleProjectPage {
+      backgroundImage {
+        file {
+          url
+        }
+      }
+    }
+  }
+`

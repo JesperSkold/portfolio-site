@@ -4,18 +4,10 @@ import colors from "../../theme/colors"
 
 export const Wrapper = styled.div`
   min-height: 100vh;
-  /* background-image: url(${({ background }) => background && background}); */
-  /* position: fixed;
-  height: 100%;
-  width: 100%; */
-  /* background-size: cover;
-  background-position: center bottom; */
   color: white;
 `
 export const GlobalStyle = createGlobalStyle`
- /* backgrounds by SVGBackgrounds.com and app.haikei.app  */
   body{
-  background-image: url(${({ background }) => background && background});
   background-size: cover;
   background-position: center bottom;
   margin: 0;
