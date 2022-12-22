@@ -22,27 +22,29 @@ const Project = ({ project }) => {
           </Link>
           <Links>
             {project.deployedSite && (
-              <Link to={project.deployedSite}>
+              <a href={project.deployedSite}>
                 <span
                   className="material-symbols-outlined"
                   title="Deployed Site"
                 >
                   open_in_new
                 </span>
-              </Link>
+              </a>
             )}
-            <Link to={project.repository}>
+            <a href={project.repository}>
               <span
                 className="material-symbols-outlined"
                 title="GitHub Repository"
               >
                 folder_open
               </span>
-            </Link>
+            </a>
           </Links>
         </LinkContainer>
       </ProjectInfo>
-      <GatsbyImage image={getImage(project.thumbnail)} alt="" />
+      <Link to={project.slug}>
+        <GatsbyImage image={getImage(project.thumbnail)} alt="" />
+      </Link>
     </ProjectContainer>
   )
 }

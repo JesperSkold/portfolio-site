@@ -27,7 +27,7 @@ const ProjectsPage = ({ data }) => {
   const [filter, setFilter] = useState(null)
   const [highlight, setHighlight] = useState()
   return (
-    <Layout background={data.contentfulProjectsPage.backgroundImage.file.url}>
+    <Layout>
       <Background
         background={data.contentfulProjectsPage.backgroundImage.file.url}
       />

@@ -3,7 +3,7 @@ import { GlobalStyle, Wrapper } from "./style"
 import Navbar from "../Navbar"
 import Footer from "../Footer"
 import { Helmet } from "react-helmet"
-const Layout = ({ children, background }) => {
+const Layout = ({ children }) => {
   return (
     <>
     <Helmet>
@@ -11,8 +11,8 @@ const Layout = ({ children, background }) => {
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" />
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     </Helmet>
-      <Wrapper background={background}>
-        <GlobalStyle background={background}/>
+      <Wrapper>
+        <GlobalStyle />
         <Navbar />
         {children}
       </Wrapper>

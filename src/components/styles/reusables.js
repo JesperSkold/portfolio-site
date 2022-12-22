@@ -10,8 +10,6 @@ export const Background = styled.div`
   height: 100vh;
   background-size: cover;
   background-position: ${({ position }) => position ? position : "50% 100%"};
-  /* background-position: 40% 70%; */
-  /* background-position: 50% 100%; */
   z-index: -999;
 `
 

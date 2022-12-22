@@ -12,6 +12,8 @@ img{
 display: flex;
 flex-direction: column;
 align-items: center;
+margin: 5rem 0;
+gap: 2rem;
 `
 
 const Project = ({ data }) => {
@@ -22,10 +24,16 @@ const Project = ({ data }) => {
       <Background background={data.contentfulSingleProjectPage.backgroundImage.file.url} position={"10% 50%"}/>
       <Wrapper>
         <h1>{project.title}</h1>
+        <p>{project.longDescription.longDescription}</p>
+        <div>
+        <p>Built with: </p>
+        <p>GitHub</p>
+        <p>Site</p>
+        </div>
         <ImageContainer>
-        {/* <GatsbyImage image={getImage(project.thumbnail)} alt="" /> */}
-        <GatsbyImage image={getImage(project.image1)} alt="" />
-        <GatsbyImage image={getImage(project.image2)} alt="" />
+          {project.images.map((img) => 
+          <GatsbyImage image={getImage(img.gatsbyImage)} alt="" />
+          )}
         </ImageContainer>
       </Wrapper>
     </Layout>
@@ -34,33 +42,27 @@ const Project = ({ data }) => {
 
 export default Project
 
-export const Head = () => <title>Dynamiskt</title>
+export const Head = ({data}) => <title>{data.contentfulProject.title}</title>
 
 export const query = graphql`
   query ProjectQuery($slug: String) {
     contentfulProject(slug: { eq: $slug }) {
       title
-      repository
-      deployedSite
-      longDescription {
-        longDescription
-      }
-      thumbnail {
-        gatsbyImageData(formats: WEBP, height: 400)
-      }
-      image1 {
-        gatsbyImageData(formats: WEBP, width:700)
-      }
-      image2 {
-        gatsbyImageData(formats: WEBP, width:700)
-      }
+    repository
+    deployedSite
+    longDescription {
+      longDescription
     }
-    contentfulSingleProjectPage {
-      backgroundImage {
-        file {
-          url
-        }
+    images {
+      gatsbyImage(formats: WEBP, width: 1000)
+    }
+  }
+  contentfulSingleProjectPage {
+    backgroundImage {
+      file {
+        url
       }
     }
   }
+}
 `

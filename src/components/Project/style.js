@@ -19,7 +19,7 @@ export const ProjectContainer = styled.article`
   }
   img {
     object-position: center top;
-    /* max-height: 200px; */
+    max-height: 200px;
   }
   h3 {
     margin: 0;
