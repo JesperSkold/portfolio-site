@@ -4,8 +4,9 @@ import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import styled from "styled-components"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { useState, useRef } from "react"
-import { useEffect } from "react"
+import { useState } from "react"
+import { Button } from "../components/styles/reusables"
+
 export const Projects = styled.main``
 
 export const Project = styled.article`
@@ -19,14 +20,11 @@ export const Project = styled.article`
   }
   img {
     object-position: center top;
+    max-height: 200px;
   }
   h3 {
-    margin-top: 0;
+    margin: 0;
   }
-`
-const TextContainer = styled.div`
-  width: 30%;
-  overflow-wrap: break-word;
 `
 
 const ProjectTitle = styled.h3``
@@ -55,11 +53,36 @@ const Category = styled.h3`
   margin: 0 -3px;
 `
 
+const ProjectInfo = styled.div`
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: break-word;
+`
+
+const Links = styled.div`
+  align-self: flex-end;
+  margin-left: auto;
+  a {
+    margin: 0 0.5rem;
+  }
+  span {
+    vertical-align: bottom;
+    font-size: 2rem;
+    color: white;
+  }
+`
+
+const LinkContainer = styled.div`
+  margin-top: auto;
+  display: flex;
+`
 const ProjectsPage = ({ data }) => {
   const projects = data.allContentfulProject.nodes
   const categories = data.allContentfulCategory.nodes
   const [filter, setFilter] = useState(null)
   const [highlight, setHighlight] = useState()
+  console.log(projects)
   return (
     <Layout background={data.contentfulProjectsPage.backgroundImage.file.url}>
       <Wrapper>
@@ -92,19 +115,65 @@ const ProjectsPage = ({ data }) => {
             project.category.map((category) =>
               category.category === filter ? (
                 <Project key={project.title}>
-                  <TextContainer>
+                  <ProjectInfo>
                     <ProjectTitle>{project.title}</ProjectTitle>
                     <Description>{project.shortDescription}</Description>
-                  </TextContainer>
+                    <LinkContainer>
+                      <Button>Read more</Button>
+                      <Links>
+                        {project.deployedSite && (
+                          <Link to={project.deployedSite}>
+                            <span
+                              className="material-symbols-outlined"
+                              title="Deployed Site"
+                            >
+                              open_in_new
+                            </span>
+                          </Link>
+                        )}
+                        <Link to={project.repository}>
+                          <span
+                            className="material-symbols-outlined"
+                            title="GitHub Repository"
+                          >
+                            folder_open
+                          </span>
+                        </Link>
+                      </Links>
+                    </LinkContainer>
+                  </ProjectInfo>
                   <GatsbyImage image={getImage(project.thumbnail)} alt="" />
                 </Project>
               ) : (
                 filter === null && (
                   <Project key={project.title}>
-                    <TextContainer>
+                    <ProjectInfo>
                       <ProjectTitle>{project.title}</ProjectTitle>
                       <Description>{project.shortDescription}</Description>
-                    </TextContainer>
+                      <LinkContainer>
+                        <Button>Read more</Button>
+                        <Links>
+                          {project.deployedSite && (
+                            <Link to={project.deployedSite}>
+                              <span
+                                className="material-symbols-outlined"
+                                title="Deployed Site"
+                              >
+                                open_in_new
+                              </span>
+                            </Link>
+                          )}
+                          <Link to={project.repository}>
+                            <span
+                              className="material-symbols-outlined"
+                              title="GitHub Repository"
+                            >
+                              folder_open
+                            </span>
+                          </Link>
+                        </Links>
+                      </LinkContainer>
+                    </ProjectInfo>
                     <GatsbyImage image={getImage(project.thumbnail)} alt="" />
                   </Project>
                 )
