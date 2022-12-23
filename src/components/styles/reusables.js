@@ -19,6 +19,7 @@ export const Wrapper = styled.div`
   h1 {
     text-align: center;
     margin-bottom: 0;
+    /* margin: 0; */
   }
 `
 
