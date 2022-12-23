@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
-export const ProjectTitle = styled.h3``
+export const ProjectTitle = styled.h2`
+    margin: 0;
+`
 
 export const Description = styled.p``
 
@@ -20,9 +22,6 @@ export const ProjectContainer = styled.article`
   img {
     object-position: center top;
     max-height: 200px;
-  }
-  h3 {
-    margin: 0;
   }
 `
 

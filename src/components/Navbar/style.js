@@ -23,10 +23,12 @@ export const DesktopLinks = styled.ul`
     list-style: none;
   }
 `
-export const Title = styled.h1`
+export const Title = styled.a`
   color: white;
   margin: 0;
-
+  font-size: 24px !important;
+  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
   @media (max-width: 360px){
     word-spacing: 10rem;
   }

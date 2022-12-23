@@ -18,7 +18,7 @@ const Project = ({ project }) => {
         <Description>{project.shortDescription}</Description>
         <LinkContainer>
           <Link to={project.slug}>
-            <Button>Read more</Button>
+            <Button>Read More</Button>
           </Link>
           <Links>
             {project.deployedSite && (

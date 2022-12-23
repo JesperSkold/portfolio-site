@@ -15,9 +15,10 @@ const Categories = styled.div`
   gap: 1rem;
 `
 
-const Category = styled.h3`
+const Category = styled.p`
   border-bottom: ${({ highlight }) => highlight && "3px solid #6C50F6"};
   cursor: pointer;
+  font-size: 20px;
   padding: 3px;
   margin: 0 -3px;
 `

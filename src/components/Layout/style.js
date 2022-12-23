@@ -14,10 +14,13 @@ export const GlobalStyle = createGlobalStyle`
   padding: 0;
   background-attachment: fixed;
  }
- h1, h3{
+ h1, h2, h3{
   font-family: 'Open Sans', sans-serif;
  }
- h2, p, a{
+ h1{
+    font-size: 48px;
+ }
+  p, a{
   font-family: 'Montserrat', sans-serif;
   font-weight: lighter;
  }

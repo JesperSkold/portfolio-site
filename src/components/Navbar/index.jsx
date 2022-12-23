@@ -14,7 +14,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false)
   return (
     <StyledNav>
-      <Title>Jesper Olsson</Title>
+      <Title href="/">Jesper Olsson</Title>
       <MediaQuery minWidth={850}>
         <DesktopLinks>
           <Links></Links>

@@ -28,10 +28,11 @@ const AboutContainer = styled.div`
   padding: 1rem 2rem 2rem 2rem;
 `
 
-const ProjectMeta = styled.div`
+const Links = styled.div`
   display: flex;
   gap: 1rem;
   a {
+    font-weight: bold;
     color: white;
     margin-top: 1rem;
   }
@@ -62,18 +63,18 @@ const Project = ({ data }) => {
         <AboutContainer>
           <h1>{project.title}</h1>
           <p>{project.longDescription.longDescription}</p>
-          <h3>Tools and Technologies</h3>
+          <h2>Tools and Technologies</h2>
           <TechStack>
             {project.techStack.map((technology) => (
               <Technology>{technology}</Technology>
             ))}
           </TechStack>
-          <ProjectMeta>
+          <Links>
             <a href={project.repository}>GitHub Repository</a>
             {project.deployedSite && (
               <a href={project.deployedSite}>Deployed Site</a>
             )}
-          </ProjectMeta>
+          </Links>
         </AboutContainer>
         <ImageContainer>
           {project.images.map((img) => (
