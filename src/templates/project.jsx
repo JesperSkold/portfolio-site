@@ -16,16 +16,17 @@ const ImageContainer = styled.div`
   .gatsby-image-wrapper:first-child{
     margin-top: 0;
   }
-  .gatsby-image-wrapper:last-child{
-    margin-bottom: 5rem;
-  }
+
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 const AboutContainer = styled.div`
   background: ${colors.primaryTransparent};
-  padding: 1rem 2rem 2rem 2rem;
+  padding: 0 2rem 2rem 2rem;
+  h1{
+    margin: 0;
+  }
 `
 
 const Links = styled.div`
@@ -52,7 +53,6 @@ const TechStack = styled.div`
 
 const Project = ({ data }) => {
   const project = data.contentfulProject
-  console.log("yo", data)
   return (
     <Layout>
       <Background

@@ -23,6 +23,9 @@ const Container = styled.main`
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
   }
+  h1{
+    margin-top: 0;
+  }
   h2{
     margin-bottom: 0;
   }

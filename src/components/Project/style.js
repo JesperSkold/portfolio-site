@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const ProjectTitle = styled.h2`
-    margin: 0;
+  margin: 0;
 `
 
 export const Description = styled.p``
@@ -11,6 +11,14 @@ export const ProjectContainer = styled.article`
   justify-content: center;
   margin: 5rem 0;
   gap: 1rem;
+
+  @media (max-width: 650px) {
+    flex-direction: column-reverse;
+    align-items: center;
+    max-width: 375px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+  }
 
   a {
     text-decoration: none;
@@ -30,6 +38,9 @@ export const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
   overflow-wrap: break-word;
+  @media (max-width: 650px) {
+    width:100%;
+}
 `
 
 export const Links = styled.div`

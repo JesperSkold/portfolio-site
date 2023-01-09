@@ -18,8 +18,8 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   h1 {
     text-align: center;
-    margin-bottom: 0;
-    /* margin: 0; */
+    /* margin-bottom: 0; */
+    margin: 0;
   }
 `
 
