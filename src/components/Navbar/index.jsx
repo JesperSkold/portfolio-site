@@ -5,6 +5,7 @@ import {
   StyledBurger,
   MobileLinks,
   DesktopLinks,
+  Overlay
 } from "./style"
 import { useState } from "react"
 import Links from "./links"
@@ -27,9 +28,12 @@ const Navbar = () => {
           <div />
         </StyledBurger>
         {open && (
-          <MobileLinks>
-            <Links></Links>
-          </MobileLinks>
+          <>
+            <Overlay onClick={() => setOpen(!open)}></Overlay>
+            <MobileLinks>
+              <Links></Links>
+            </MobileLinks>
+          </>
         )}
       </MediaQuery>
     </StyledNav>

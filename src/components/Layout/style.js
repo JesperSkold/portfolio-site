@@ -13,7 +13,7 @@ export const GlobalStyle = createGlobalStyle`
   body{
   background-size: cover;
   background-position: center bottom;
-  margin: 0 0 100px 0;
+  margin: 0 0 150px 0;
   bottom: 64px;
   padding: 0;
   background-attachment: fixed;

@@ -15,23 +15,47 @@ const Container = styled.main`
   h2 {
     font-size: 36px;
   }
+  @media (max-width: 1080px) {
+    max-width: 500px;
+    padding: 0 2rem;
+  }
 `
 
 const AboutContainer = styled.div`
   display: flex;
   gap: 3rem;
+  h2 {
+    margin-bottom: 0;
+  }
+  @media (max-width: 1080px) {
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  div {
+    @media (max-width: 1080px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 `
 const FirstColumn = styled.div``
 const SecondColumn = styled.div`
-  margin-top: 0.7rem;
+  margin-top: -3.2rem;
+  /* margin-top: 0.7rem; */
   h2:first-child {
     margin-top: 0.4rem;
-    margin-bottom: 0;
   }
+  @media (max-width: 1080px) {
+    margin-top: 30px;
+    }
+
   div {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-top: 16px;
   }
 `
 const About = ({ data }) => {
@@ -44,9 +68,9 @@ const About = ({ data }) => {
       />
       <Container>
         <h1>{about.title}</h1>
+        <h1>{about.subtitle}</h1>
         <AboutContainer>
           <FirstColumn>
-            <h1>{about.subtitle}</h1>
             {documentToReactComponents(JSON.parse(about.introduction.raw))}
             {documentToReactComponents(JSON.parse(about.education.raw))}
           </FirstColumn>
