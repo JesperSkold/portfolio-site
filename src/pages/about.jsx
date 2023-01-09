@@ -1,11 +1,10 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
-import { StyledMain } from "../components/styles/reusables"
 import { Background } from "../components/styles/reusables"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
-import colors from "../theme/colors"
+
 const Container = styled.main`
   max-width: 1000px;
   margin: 0 auto;
@@ -16,7 +15,6 @@ const Container = styled.main`
   h2 {
     font-size: 36px;
   }
-height: 100vh;
 `
 
 const AboutContainer = styled.div`
@@ -40,7 +38,10 @@ const About = ({ data }) => {
   const about = data.contentfulAbout
   return (
     <Layout>
-      <Background background={about.backgroundImage.file.url} position={"100% 30%"}/>
+      <Background
+        background={about.backgroundImage.file.url}
+        position={"100% 30%"}
+      />
       <Container>
         <h1>{about.title}</h1>
         <AboutContainer>
@@ -54,11 +55,7 @@ const About = ({ data }) => {
             <h2>Skills</h2>
             <div>
               {about.skills.map((icon) => (
-                <img
-                  key={icon.file.url}
-                  src={icon.file.url}
-                  height="50px"
-                ></img>
+                <img key={icon.file.url} src={icon.file.url} height="50px" />
               ))}
             </div>
           </SecondColumn>
