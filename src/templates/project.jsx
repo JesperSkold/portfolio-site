@@ -6,25 +6,14 @@ import colors from "../theme/colors"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Wrapper } from "../components/styles/reusables"
 import { Background } from "../components/styles/reusables"
-const ImageContainer = styled.div`
-  img {
-  }
-  
-  .gatsby-image-wrapper{
-    margin: 1rem 0;
-  }
-  .gatsby-image-wrapper:first-child{
-    margin-top: 0;
-  }
+import { Carousel } from "react-responsive-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
+import "../theme/carouselStyles.css"
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
 const AboutContainer = styled.div`
   background: ${colors.primaryTransparent};
   padding: 0 2rem 2rem 2rem;
-  h1{
+  h1 {
     margin: 0;
   }
 `
@@ -66,7 +55,7 @@ const Project = ({ data }) => {
           <h2>Tools and Technologies</h2>
           <TechStack>
             {project.techStack.map((technology) => (
-              <Technology>{technology}</Technology>
+              <Technology key={technology}>{technology}</Technology>
             ))}
           </TechStack>
           <Links>
@@ -76,11 +65,15 @@ const Project = ({ data }) => {
             )}
           </Links>
         </AboutContainer>
-        <ImageContainer>
+        <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
           {project.images.map((img) => (
-            <GatsbyImage image={getImage(img.gatsbyImage)} alt="" />
+            <GatsbyImage
+              image={getImage(img.gatsbyImage)}
+              alt=""
+              key={img.gatsbyImage}
+            />
           ))}
-        </ImageContainer>
+        </Carousel>
       </Wrapper>
     </Layout>
   )

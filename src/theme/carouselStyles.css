@@ -1,0 +1,31 @@
+
+.carousel .control-next.control-arrow:before {
+  content: "";
+  border: solid rgb(114, 112, 112);
+  mix-blend-mode: difference;
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  mix-blend-mode: difference;
+}
+
+.carousel .control-prev.control-arrow:before {
+  content: "";
+  mix-blend-mode: difference;
+  border: solid rgb(114, 112, 112);
+  border-width: 0 4px 4px 0;
+  display: inline-block;
+  padding: 5px;
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.carousel .control-dots .dot {
+  background: rgb(114, 112, 112);
+}
+
+.carousel .carousel-status {
+  mix-blend-mode: difference;
+}
