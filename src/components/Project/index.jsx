@@ -10,6 +10,9 @@ import {
 } from "./style"
 import { Button } from "../styles/reusables"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import {FaGithub} from "@react-icons/all-files/fa/FaGithub"
+import {FaExternalLinkAlt} from "@react-icons/all-files/fa/FaExternalLinkAlt"
+
 const Project = ({ project }) => {
   return (
     <ProjectContainer key={project.title}>
@@ -23,21 +26,11 @@ const Project = ({ project }) => {
           <Links>
             {project.deployedSite && (
               <a href={project.deployedSite}>
-                <span
-                  className="material-symbols-outlined"
-                  title="Deployed Site"
-                >
-                  open_in_new
-                </span>
+                <FaExternalLinkAlt />
               </a>
             )}
             <a href={project.repository}>
-              <span
-                className="material-symbols-outlined"
-                title="GitHub Repository"
-              >
-                folder_open
-              </span>
+            <FaGithub />
             </a>
           </Links>
         </LinkContainer>

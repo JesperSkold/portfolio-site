@@ -4,27 +4,45 @@ import Layout from "../components/layout"
 import styled from "styled-components"
 import colors from "../theme/colors"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Wrapper } from "../components/styles/reusables"
+import { Button, Wrapperx } from "../components/styles/reusables"
 import { Background } from "../components/styles/reusables"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../theme/carouselStyles.css"
 
-const AboutContainer = styled.div`
-  background: ${colors.primaryTransparent};
-  padding: 0 2rem 2rem 2rem;
+export const Wrapper = styled.div`
+  max-width: 1000px;
+  margin: 0 auto;
   h1 {
+    text-align: center;
     margin: 0;
+  }
+  background: ${colors.primaryTransparent};
+  padding: 0 1.2rem;
+
+  @media (max-width:750px) {
+   padding: 0;
   }
 `
 
+const AboutContainer = styled.div`
+  @media (max-width:750px) {
+    padding: 0 1.2rem;
+  }
+  h1 {
+    margin: 0;
+  }
+
+`
+
+
 const Links = styled.div`
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
   a {
     font-weight: bold;
     color: white;
-    margin-top: 1rem;
   }
 `
 
@@ -58,22 +76,28 @@ const Project = ({ data }) => {
               <Technology key={technology}>{technology}</Technology>
             ))}
           </TechStack>
+          <h2>Links</h2>
           <Links>
-            <a href={project.repository}>GitHub Repository</a>
+            <a href={project.repository}>
+              <Button>GitHub Repository</Button>
+            </a>
             {project.deployedSite && (
-              <a href={project.deployedSite}>Deployed Site</a>
+              <a href={project.deployedSite}>
+                <Button>Deployed Site</Button>
+              </a>
             )}
           </Links>
+        <h2>Images</h2>
         </AboutContainer>
-          <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
-            {project.images.map((img) => (
-                <GatsbyImage
-                  image={getImage(img.gatsbyImage)}
-                  alt=""
-                  key={img.gatsbyImage}
-                />
-            ))}
-          </Carousel>
+        <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
+          {project.images.map((img) => (
+            <GatsbyImage
+              image={getImage(img.gatsbyImage)}
+              alt=""
+              key={img.gatsbyImage}
+            />
+          ))}
+        </Carousel>
       </Wrapper>
     </Layout>
   )

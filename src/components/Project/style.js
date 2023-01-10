@@ -12,7 +12,7 @@ export const ProjectContainer = styled.article`
   margin: 5rem 0;
   gap: 1rem;
 
-  @media (max-width: 650px) {
+  @media (max-width: 800px) {
     flex-direction: column-reverse;
     align-items: center;
     max-width: 375px;
@@ -38,22 +38,22 @@ export const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
   overflow-wrap: break-word;
-  @media (max-width: 650px) {
-    width:100%;
-}
+  @media (max-width: 800px) {
+    width: 100%;
+  }
 `
 
 export const Links = styled.div`
   align-self: flex-end;
   margin-left: auto;
   a {
-    margin: 0 0.5rem;
-  }
-  span {
-    vertical-align: bottom;
-    font-size: 2rem;
     color: white;
+    margin: 0 0.5rem;
+    svg {
+      vertical-align: bottom;
+    }
   }
+  font-size: 1.9rem;
 `
 
 export const LinkContainer = styled.div`
