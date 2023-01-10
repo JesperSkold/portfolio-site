@@ -1,14 +1,55 @@
 import * as React from "react"
 import { Link } from "gatsby"
-const NotFoundPage = () => {
+import Layout from "../components/layout"
+import { graphql } from "gatsby"
+import { Background } from "../components/styles/reusables"
+import styled from "styled-components"
+import { Button } from "../components/styles/reusables"
+const Wrapper = styled.main`
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  h1 {
+    margin: 0;
+  }
+  a {
+    color: white;
+  }
+`
+
+const NotFoundPage = ({ data }) => {
+  const error = data.contentfulFourOhFour
   return (
-    <div>
-      <h1>page not found</h1>
-      <Link to="/">Go back home!</Link>
-    </div>
+    <Layout>
+      <Background
+        background={error.backgroundImage.file.url}
+        position={"50% 100%"}
+      />
+      <Wrapper>
+        <h1>{error.title}</h1>
+        <h2>{error.subtitle}</h2>
+        <Link to="/">
+          <Button>Back To Home</Button>
+        </Link>
+      </Wrapper>
+    </Layout>
   )
 }
 
 export default NotFoundPage
 
-export const Head = () => <title>Not found</title>
+export const Head = ({data}) => <title>{data.contentfulFourOhFour.title}</title>
+
+export const query = graphql`
+  query NotFoundPageQuery {
+    contentfulFourOhFour {
+      backgroundImage {
+        file {
+          url
+        }
+      }
+      title
+      subtitle
+    }
+  }
+`

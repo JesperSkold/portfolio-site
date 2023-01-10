@@ -65,15 +65,15 @@ const Project = ({ data }) => {
             )}
           </Links>
         </AboutContainer>
-        <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
-          {project.images.map((img) => (
-            <GatsbyImage
-              image={getImage(img.gatsbyImage)}
-              alt=""
-              key={img.gatsbyImage}
-            />
-          ))}
-        </Carousel>
+          <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
+            {project.images.map((img) => (
+                <GatsbyImage
+                  image={getImage(img.gatsbyImage)}
+                  alt=""
+                  key={img.gatsbyImage}
+                />
+            ))}
+          </Carousel>
       </Wrapper>
     </Layout>
   )
@@ -94,7 +94,7 @@ export const query = graphql`
         longDescription
       }
       images {
-        gatsbyImage(formats: WEBP, width: 1000)
+        gatsbyImage(formats: WEBP, width: 1000, height: 700)
       }
     }
     contentfulSingleProjectPage {

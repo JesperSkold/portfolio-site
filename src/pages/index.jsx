@@ -27,7 +27,6 @@ const Main = styled.main`
 `
 
 const IndexPage = ({ data }) => {
-  console.log(data, "INDEX")
   return (
     <Layout>
       <Background

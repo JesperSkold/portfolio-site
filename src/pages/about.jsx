@@ -48,6 +48,9 @@ const SecondColumn = styled.div`
   }
   @media (max-width: 1080px) {
     margin-top: 30px;
+    h2{
+      margin-top: 0.4rem;
+    }
     }
 
   div {
