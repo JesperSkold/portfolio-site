@@ -53,7 +53,7 @@ export const Links = styled.div`
       vertical-align: bottom;
     }
   }
-  font-size: 1.9rem;
+  font-size: 1.8rem;
 `
 
 export const LinkContainer = styled.div`
