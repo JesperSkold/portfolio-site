@@ -94,7 +94,7 @@ export const query = graphql`
           category
         }
         thumbnail {
-          gatsbyImageData(formats: WEBP, width: 375, height: 200)
+          gatsbyImage(formats: WEBP, width: 375, height: 200)
         }
       }
     }
