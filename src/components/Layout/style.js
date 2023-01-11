@@ -1,5 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 import styled from "styled-components"
+import colors from "../../theme/colors"
 
 export const Wrapper = styled.div`
   /* min-height: 100vh; */
@@ -11,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
   }
   body{
+  background-color: ${colors.primary};
   background-size: cover;
   background-position: center bottom;
   margin: 0 0 150px 0;
