@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Layout from "../components/layout"
+import Layout from "../components/Layout"
 import styled from "styled-components"
 import { Background } from "../components/styles/reusables"
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope"
