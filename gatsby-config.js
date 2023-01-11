@@ -1,16 +1,29 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config()
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
-    title: `My Gatsby Site`,
-    siteUrl: `https://www.yourdomain.tld`
+    title: `Jesper Olsson`,
+    siteUrl: `https://www.yourdomain.tld`,
+    description: "Jesper Olsson's portfolio",
   },
-  plugins: [{
-    resolve: 'gatsby-source-contentful',
-    options: {
-      "accessToken": "bSVMLXfP5argnGW94bM3NO3klQ6K3i3c1LJBbRTv5AA",
-      "spaceId": "4bncgvuztfpu"
-    }
-  }, "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", "gatsby-plugin-styled-components"]
-};
+  plugins: [
+    {
+      resolve: "gatsby-source-contentful",
+      options: {
+        "accessToken": process.env.CONTENTFUL_ACCESS_TOKEN,
+        "spaceId": process.env.CONTENTFUL_SPACE_ID
+      },
+    },
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-react-helmet",
+  ],
+}
