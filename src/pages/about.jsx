@@ -82,7 +82,7 @@ const About = ({ data }) => {
             <h2>Skills</h2>
             <div>
               {about.skills.map((icon) => (
-                <img key={icon.file.url} src={icon.file.url} height="50px" />
+                <img key={icon.file.url} src={icon.file.url} height="50px" alt="" />
               ))}
             </div>
           </SecondColumn>

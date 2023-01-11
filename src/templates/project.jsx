@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import colors from "../theme/colors"
@@ -10,7 +10,7 @@ import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../theme/carouselStyles.css"
 
-export const Wrapper = styled.div`
+const Wrapper = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   h1 {
