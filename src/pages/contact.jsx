@@ -84,7 +84,7 @@ const Contact = ({ data }) => {
         <Info>
           <img src={contact.avatar.file.url} alt="" />
           <Links>
-            <h2>Want to get in touch?</h2>
+            <h2>{contact.subtitle}</h2>
             <a href={`mailto:${contact.email}`}>
               <FaRegEnvelope />
               <p>Send me an email</p>
@@ -116,6 +116,7 @@ export const ContactPageQuery = graphql`
         }
       }
       title
+      subtitle
       email
       github
       linkedin
