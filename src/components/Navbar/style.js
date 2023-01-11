@@ -14,6 +14,9 @@ export const StyledNav = styled.nav`
 `
 
 export const DesktopLinks = styled.ul`
+@media (max-width:850px){
+  display: none;
+}
   display: flex;
   margin: 0;
   padding: 0;
@@ -31,7 +34,12 @@ export const Title = styled.a`
   font-family: "Open Sans", sans-serif;
 
 `
-//burger vvv
+export const MobileNavContainer = styled.div`
+@media (min-width:850px){
+  display: none;
+}
+`
+
 export const StyledBurger = styled.button`
   position: ${({ open }) => open && "fixed"};
   right: ${({ open }) => open && "3rem"};
@@ -71,13 +79,6 @@ export const StyledBurger = styled.button`
     }
   }
 `
-
-// export const MobileAside = styled.aside`
-//   background: ${colors.secondary};
-//   @media (min-width: 851px) {
-//     display: none;
-//   }
-// `
 
 export const MobileLinks = styled.ul`
   right: 0;

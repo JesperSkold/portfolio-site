@@ -5,23 +5,21 @@ import {
   StyledBurger,
   MobileLinks,
   DesktopLinks,
-  Overlay
+  Overlay,
+  MobileNavContainer
 } from "./style"
 import { useState } from "react"
 import Links from "./links"
-import MediaQuery from "react-responsive"
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
   return (
     <StyledNav>
       <Title href="/">Jesper Olsson</Title>
-      <MediaQuery minWidth={850}>
         <DesktopLinks>
           <Links></Links>
         </DesktopLinks>
-      </MediaQuery>
-      <MediaQuery maxWidth={850}>
+      <MobileNavContainer open={open}>
         <StyledBurger open={open} onClick={() => setOpen(!open)}>
           <div />
           <div />
@@ -35,7 +33,7 @@ const Navbar = () => {
             </MobileLinks>
           </>
         )}
-      </MediaQuery>
+        </MobileNavContainer>
     </StyledNav>
   )
 }
