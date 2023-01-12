@@ -32,7 +32,6 @@ const AboutContainer = styled.div`
   h1 {
     margin: 0;
   }
-
 `
 
 
@@ -78,14 +77,14 @@ const Project = ({ data }) => {
           </TechStack>
           <h2>Links</h2>
           <Links>
-            <a href={project.repository}>
-              <Button>GitHub Repository</Button>
-            </a>
             {project.deployedSite && (
               <a href={project.deployedSite}>
                 <Button>Deployed Site</Button>
               </a>
             )}
+            <a href={project.repository}>
+              <Button>GitHub Repository</Button>
+            </a>
           </Links>
         <h2>Images</h2>
         </AboutContainer>
