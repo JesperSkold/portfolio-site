@@ -36,7 +36,7 @@ const Project = ({ project }) => {
         </LinkContainer>
       </ProjectInfo>
       <Link to={project.slug}>
-        <GatsbyImage image={getImage(project.thumbnail)} alt="" />
+        <GatsbyImage image={getImage(project.thumbnail)} alt="Project image" />
       </Link>
     </ProjectContainer>
   )

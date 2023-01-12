@@ -82,7 +82,7 @@ const Contact = ({ data }) => {
       <Container>
         <h1>{contact.title}</h1>
         <Info>
-          <img src={contact.avatar.file.url} alt="" />
+          <img src={contact.avatar.file.url} alt="Avatar of Jesper" />
           <Links>
             <h2>{contact.subtitle}</h2>
             <a href={`mailto:${contact.email}`}>

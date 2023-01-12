@@ -82,7 +82,7 @@ const About = ({ data }) => {
             <h2>Skills</h2>
             <div>
               {about.skills.map((icon) => (
-                <img key={icon.file.url} src={icon.file.url} height="50px" alt="" />
+                <img key={icon.file.url} src={icon.file.url} height="50px" alt={icon.title} title={icon.title} />
               ))}
             </div>
           </SecondColumn>
@@ -117,6 +117,7 @@ export const AboutPageQuery = graphql`
         file {
           url
         }
+        title
       }
     }
   }

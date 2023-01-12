@@ -93,7 +93,7 @@ const Project = ({ data }) => {
           {project.images.map((img) => (
             <GatsbyImage
               image={getImage(img.gatsbyImage)}
-              alt=""
+              alt="Project image"
               key={img.gatsbyImage}
             />
           ))}
