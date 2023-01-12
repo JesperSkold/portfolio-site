@@ -77,7 +77,7 @@ const Contact = ({ data }) => {
     <Layout>
       <Background
         background={contact.backgroundImage.file.url}
-        position={"60%"}
+        position={"70%"}
       />
       <Container>
         <h1>{contact.title}</h1>
