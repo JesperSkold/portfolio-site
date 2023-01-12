@@ -102,6 +102,10 @@ const Contact = ({ data }) => {
 
 export default Contact
 
+export const Head = ({ data }) => (
+  <title>{data.contentfulContact.title}</title>
+)
+
 export const ContactPageQuery = graphql`
   query {
     contentfulContact {

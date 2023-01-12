@@ -94,6 +94,10 @@ const About = ({ data }) => {
 
 export default About
 
+export const Head = ({ data }) => (
+  <title>{data.contentfulAbout.title}</title>
+)
+
 export const AboutPageQuery = graphql`
   query {
     contentfulAbout {
