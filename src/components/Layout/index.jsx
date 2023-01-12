@@ -6,7 +6,12 @@ import { Helmet } from "react-helmet"
 const Layout = ({ children }) => {
   return (
     <>
-      <Helmet>
+      <Helmet htmlAttributes={{ lang: 'en' }} meta={[
+        {
+            name: 'description',
+            content: "Jesper Olsson's portfolio page, including projects and contact info ",
+        },
+    ]}>
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
