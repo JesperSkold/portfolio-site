@@ -48,7 +48,7 @@ const Links = styled.div`
 
 const Technology = styled.p`
   padding: 0.8rem;
-  background: #6c50f6;
+  background: ${colors.secondary};
   border-radius: 0.8rem;
   margin: 0;
 `

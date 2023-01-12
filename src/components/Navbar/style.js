@@ -32,8 +32,16 @@ export const Title = styled.a`
   font-size: 24px !important;
   font-weight: bold;
   font-family: "Open Sans", sans-serif;
-
 `
+
+export const NavLi = styled.li`
+.active{
+  border-bottom: 3px solid ${colors.secondary};
+  padding: 3px;
+  margin: 0 -3px;
+}
+`
+
 export const MobileNavContainer = styled.div`
 @media (min-width:850px){
   display: none;

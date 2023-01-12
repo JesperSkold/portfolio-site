@@ -6,6 +6,7 @@ import { useState } from "react"
 import { Wrapper } from "../components/styles/reusables"
 import Project from "../components/Project"
 import { Background } from "../components/styles/reusables"
+import colors from "../theme/colors"
 
 const Projects = styled.main``
 
@@ -16,7 +17,7 @@ const Categories = styled.div`
 `
 
 const Category = styled.p`
-  border-bottom: ${({ highlight }) => highlight && "3px solid #6C50F6"};
+  border-bottom: ${({ highlight }) => highlight && `3px solid ${colors.secondary}`};
   cursor: pointer;
   font-size: 20px;
   padding: 3px;
