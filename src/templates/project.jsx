@@ -11,7 +11,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../theme/carouselStyles.css"
 
 const Wrapper = styled.div`
-  max-width: 1000px;
+  max-width: 800px;
   margin: 0 auto;
   h1 {
     text-align: center;

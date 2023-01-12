@@ -67,7 +67,6 @@ export const StyledBurger = styled.button`
     border: 1px solid black;
     height: 0.25rem;
     background: white;
-    mix-blend-mode: difference;
     border-radius: 10px;
     transition: all 0.3s linear;
     position: relative;
