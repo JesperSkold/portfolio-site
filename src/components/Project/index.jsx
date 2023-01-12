@@ -25,11 +25,11 @@ const Project = ({ project }) => {
           </Link>
           <Links>
             {project.deployedSite && (
-              <a href={project.deployedSite}>
+              <a href={project.deployedSite} target="_blank" rel="noreferrer">
                 <FaExternalLinkAlt />
               </a>
             )}
-            <a href={project.repository}>
+            <a href={project.repository} target="_blank" rel="noreferrer">
             <FaGithub />
             </a>
           </Links>

@@ -89,7 +89,7 @@ const Contact = ({ data }) => {
               <FaRegEnvelope />
               <p>Send me an email</p>
             </a>
-            <a href={contact.linkedin}>
+            <a href={contact.linkedin} target="_blank" rel="noreferrer">
               <FaLinkedin />
               <p>Connect with me on LinkedIn</p>
             </a>

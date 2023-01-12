@@ -5,7 +5,7 @@ import {
 const Footer = () => {
   return (
     <StyledFooter>
-      <a href="https://github.com/JesperSkold">Built & Designed by Jesper Olsson</a>
+      <a href="https://github.com/JesperSkold" target="_blank" rel="noreferrer">Built & Designed by Jesper Olsson</a>
       <p>© {new Date().getFullYear()}</p>
     </StyledFooter>
   )

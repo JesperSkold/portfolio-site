@@ -78,11 +78,11 @@ const Project = ({ data }) => {
           <h2>Links</h2>
           <Links>
             {project.deployedSite && (
-              <a href={project.deployedSite}>
+              <a href={project.deployedSite} target="_blank" rel="noreferrer">
                 <Button>Deployed Site</Button>
               </a>
             )}
-            <a href={project.repository}>
+            <a href={project.repository} target="_blank" rel="noreferrer">
               <Button>GitHub Repository</Button>
             </a>
           </Links>
