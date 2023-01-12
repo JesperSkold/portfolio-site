@@ -39,19 +39,21 @@ const AboutContainer = styled.div`
     }
   }
 `
-const FirstColumn = styled.div``
+const FirstColumn = styled.div`
+  flex: 1.4;
+`
 const SecondColumn = styled.div`
+  flex: 2;
   margin-top: -3.2rem;
-  /* margin-top: 0.7rem; */
   h2:first-child {
     margin-top: 0.4rem;
   }
   @media (max-width: 1080px) {
     margin-top: 30px;
-    h2{
+    h2 {
       margin-top: 0.4rem;
     }
-    }
+  }
 
   div {
     display: flex;
@@ -61,6 +63,9 @@ const SecondColumn = styled.div`
     margin-top: 16px;
   }
 `
+
+const Skills = styled.div``
+
 const About = ({ data }) => {
   const about = data.contentfulAbout
   return (
@@ -80,11 +85,17 @@ const About = ({ data }) => {
           <SecondColumn>
             {documentToReactComponents(JSON.parse(about.experience.raw))}
             <h2>Skills</h2>
-            <div>
+            <Skills>
               {about.skills.map((icon) => (
-                <img key={icon.file.url} src={icon.file.url} height="50px" alt={icon.title} title={icon.title} />
+                <img
+                  key={icon.file.url}
+                  src={icon.file.url}
+                  height="50px"
+                  alt={icon.title}
+                  title={icon.title}
+                />
               ))}
-            </div>
+            </Skills>
           </SecondColumn>
         </AboutContainer>
       </Container>
@@ -94,9 +105,7 @@ const About = ({ data }) => {
 
 export default About
 
-export const Head = ({ data }) => (
-  <title>{data.contentfulAbout.title}</title>
-)
+export const Head = ({ data }) => <title>{data.contentfulAbout.title}</title>
 
 export const AboutPageQuery = graphql`
   query {
