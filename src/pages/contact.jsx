@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { Background } from "../components/styles/reusables"
 import { FaRegEnvelope } from "@react-icons/all-files/fa/FaRegEnvelope"
 import { FaLinkedin } from "@react-icons/all-files/fa/FaLinkedin"
+import { Seo } from "../components/Seo"
 
 const Container = styled.main`
   max-width: 1000px;
@@ -102,9 +103,7 @@ const Contact = ({ data }) => {
 
 export default Contact
 
-export const Head = ({ data }) => (
-  <title>{data.contentfulContact.title}</title>
-)
+export const Head = ({ data }) => <Seo title={data.contentfulContact.seoTitle} description={`${data.contentfulContact.seoDescription} ${data.contentfulContact.email}`}/>
 
 export const ContactPageQuery = graphql`
   query {
@@ -121,6 +120,8 @@ export const ContactPageQuery = graphql`
       }
       title
       subtitle
+      seoTitle
+      seoDescription
       email
       github
       linkedin

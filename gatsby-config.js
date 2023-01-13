@@ -8,7 +8,7 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Jesper Olsson`,
+    title: `Jesper Olsson - Portfolio`,
     siteUrl: `https://jesperolsson.gatsbyjs.io/`,
     description: "Jesper Olsson's portfolio",
   },

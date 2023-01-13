@@ -7,6 +7,7 @@ import { Wrapper } from "../components/styles/reusables"
 import Project from "../components/Project"
 import { Background } from "../components/styles/reusables"
 import colors from "../theme/colors"
+import { Seo } from "../components/Seo"
 
 const Projects = styled.main``
 
@@ -78,13 +79,11 @@ const ProjectsPage = ({ data }) => {
 
 export default ProjectsPage
 
-export const Head = ({ data }) => (
-  <title>{data.contentfulProjectsPage.title}</title>
-)
+export const Head = ({ data }) => <Seo title={data.contentfulProjectsPage.seoTitle} description={data.contentfulProjectsPage.seoDescription}/>
 
 export const query = graphql`
   query ProjectsQuery {
-    allContentfulProject(sort: { updatedAt: ASC }) {
+    allContentfulProject(sort: { updatedAt: DESC }) {
       nodes {
         repository
         shortDescription
@@ -100,12 +99,14 @@ export const query = graphql`
       }
     }
     contentfulProjectsPage {
+      title
+      seoTitle
+      seoDescription
       backgroundImage {
         file {
           url
         }
       }
-      title
     }
     allContentfulCategory {
       nodes {

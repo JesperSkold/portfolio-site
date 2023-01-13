@@ -9,6 +9,7 @@ import { Background } from "../components/styles/reusables"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import "../theme/carouselStyles.css"
+import { Seo } from "../components/Seo"
 
 const Wrapper = styled.div`
   max-width: 800px;
@@ -92,7 +93,7 @@ const Project = ({ data }) => {
           {project.images.map((img) => (
             <GatsbyImage
               image={getImage(img.gatsbyImage)}
-              alt="Project image"
+              alt={`Image of Jesper's ${project.title} project`}
               key={img.gatsbyImage}
             />
           ))}
@@ -104,7 +105,7 @@ const Project = ({ data }) => {
 
 export default Project
 
-export const Head = ({ data }) => <title>{data.contentfulProject.title}</title>
+export const Head = ({ data }) => <Seo title={`${data.contentfulProject.title} - Jesper Olsson`} description={data.contentfulProject.seoDescription} />
 
 export const query = graphql`
   query ProjectQuery($slug: String) {
@@ -116,6 +117,7 @@ export const query = graphql`
       longDescription {
         longDescription
       }
+      seoDescription
       images {
         gatsbyImage(formats: WEBP, width: 1000, height: 700)
       }

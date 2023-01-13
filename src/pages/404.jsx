@@ -5,6 +5,7 @@ import { graphql } from "gatsby"
 import { Background } from "../components/styles/reusables"
 import styled from "styled-components"
 import { Button } from "../components/styles/reusables"
+import { Seo } from "../components/Seo"
 const Wrapper = styled.main`
   max-width: 1000px;
   margin: 0 auto;
@@ -38,7 +39,7 @@ const NotFoundPage = ({ data }) => {
 
 export default NotFoundPage
 
-export const Head = ({data}) => <title>{data.contentfulFourOhFour.title}</title>
+export const Head = ({data}) => <Seo title={data.contentfulFourOhFour.title} description={data.contentfulFourOhFour.subtitle}/>
 
 export const query = graphql`
   query NotFoundPageQuery {

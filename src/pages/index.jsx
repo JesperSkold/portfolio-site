@@ -4,6 +4,7 @@ import Layout from "../components/Layout"
 import styled from "styled-components"
 import { Button } from "../components/styles/reusables.js"
 import { Background } from "../components/styles/reusables"
+import { Seo } from "../components/Seo"
 
 const Main = styled.main`
   color: white;
@@ -46,13 +47,15 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage
 
-export const Head = ({ data }) => <title>{data.contentfulHome.title}</title>
+export const Head = ({ data }) => <Seo title={data.contentfulHome.seoTitle} description={data.contentfulHome.seoDescription}/>
 
 export const IndexPagePageQuery = graphql`
   query {
     contentfulHome {
       title
       subtitle
+      seoTitle
+      seoDescription
       backgroundImage {
         file {
           url
@@ -60,11 +63,4 @@ export const IndexPagePageQuery = graphql`
       }
     }
   }
-  #   contentfulHome {
-  #     description {
-  #       raw
-  #     }
-  #     title
-  #   }
-  # }
 `

@@ -4,6 +4,7 @@ import { graphql } from "gatsby"
 import { Background } from "../components/styles/reusables"
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import styled from "styled-components"
+import { Seo } from "../components/Seo"
 
 const Container = styled.main`
   max-width: 1000px;
@@ -105,13 +106,15 @@ const About = ({ data }) => {
 
 export default About
 
-export const Head = ({ data }) => <title>{data.contentfulAbout.title}</title>
+export const Head = ({ data }) => <Seo title={data.contentfulAbout.seoTitle} description={data.contentfulAbout.seoDescription}/>
 
 export const AboutPageQuery = graphql`
   query {
     contentfulAbout {
       title
       subtitle
+      seoTitle
+      seoDescription
       backgroundImage {
         file {
           url
