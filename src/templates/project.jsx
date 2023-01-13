@@ -21,20 +21,19 @@ const Wrapper = styled.div`
   background: ${colors.primaryTransparent};
   padding: 0 1.2rem;
 
-  @media (max-width:750px) {
-   padding: 0;
+  @media (max-width: 750px) {
+    padding: 0;
   }
 `
 
 const AboutContainer = styled.div`
-  @media (max-width:750px) {
+  @media (max-width: 750px) {
     padding: 0 1.2rem;
   }
   h1 {
     margin: 0;
   }
 `
-
 
 const Links = styled.div`
   display: flex;
@@ -87,7 +86,7 @@ const Project = ({ data }) => {
               <Button>GitHub Repository</Button>
             </a>
           </Links>
-        <h2>Images</h2>
+          <h2>Images</h2>
         </AboutContainer>
         <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
           {project.images.map((img) => (
@@ -105,7 +104,13 @@ const Project = ({ data }) => {
 
 export default Project
 
-export const Head = ({ data }) => <Seo title={`${data.contentfulProject.title} - Jesper Olsson`} description={data.contentfulProject.seoDescription} />
+export const Head = ({ data }) => (
+  <Seo
+    title={`${data.contentfulProject.title} - Jesper Olsson`}
+    description={data.contentfulProject.seoDescription}
+    image={data.contentfulProject.thumbnail.file.url}
+  />
+)
 
 export const query = graphql`
   query ProjectQuery($slug: String) {
@@ -120,6 +125,11 @@ export const query = graphql`
       seoDescription
       images {
         gatsbyImage(formats: WEBP, width: 1000, height: 700)
+      }
+      thumbnail {
+        file {
+          url
+        }
       }
     }
     contentfulSingleProjectPage {
