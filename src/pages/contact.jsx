@@ -103,7 +103,13 @@ const Contact = ({ data }) => {
 
 export default Contact
 
-export const Head = ({ data }) => <Seo title={data.contentfulContact.seoTitle} description={`${data.contentfulContact.seoDescription} ${data.contentfulContact.email}`}/>
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulContact.seoTitle}
+    description={`${data.contentfulContact.seoDescription} ${data.contentfulContact.email}`}
+    image={data.contentfulContact.ogImage.file.url}
+  />
+)
 
 export const ContactPageQuery = graphql`
   query {
@@ -114,6 +120,11 @@ export const ContactPageQuery = graphql`
         }
       }
       avatar {
+        file {
+          url
+        }
+      }
+      ogImage {
         file {
           url
         }

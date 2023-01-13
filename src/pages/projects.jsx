@@ -18,7 +18,8 @@ const Categories = styled.div`
 `
 
 const Category = styled.p`
-  border-bottom: ${({ highlight }) => highlight && `3px solid ${colors.secondary}`};
+  border-bottom: ${({ highlight }) =>
+    highlight && `3px solid ${colors.secondary}`};
   cursor: pointer;
   font-size: 20px;
   padding: 3px;
@@ -79,7 +80,13 @@ const ProjectsPage = ({ data }) => {
 
 export default ProjectsPage
 
-export const Head = ({ data }) => <Seo title={data.contentfulProjectsPage.seoTitle} description={data.contentfulProjectsPage.seoDescription} />
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulProjectsPage.seoTitle}
+    description={data.contentfulProjectsPage.seoDescription}
+    image={data.contentfulProjectsPage.ogImage.file.url}
+  />
+)
 
 export const query = graphql`
   query ProjectsQuery {
@@ -103,6 +110,11 @@ export const query = graphql`
       seoTitle
       seoDescription
       backgroundImage {
+        file {
+          url
+        }
+      }
+      ogImage {
         file {
           url
         }

@@ -106,7 +106,13 @@ const About = ({ data }) => {
 
 export default About
 
-export const Head = ({ data }) => <Seo title={data.contentfulAbout.seoTitle} description={data.contentfulAbout.seoDescription}/>
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulAbout.seoTitle}
+    description={data.contentfulAbout.seoDescription}
+    image={data.contentfulAbout.ogImage.file.url}
+  />
+)
 
 export const AboutPageQuery = graphql`
   query {
@@ -134,6 +140,11 @@ export const AboutPageQuery = graphql`
           url
         }
         title
+      }
+      ogImage {
+        file {
+          url
+        }
       }
     }
   }
