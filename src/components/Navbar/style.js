@@ -95,7 +95,7 @@ export const MobileLinks = styled.ul`
   width: 70%;
   padding: 0;
   margin: 0;
-  background: ${colors.primary};
+  background: #001020f5;
   text-align: center;
   z-index: 9;
   li {
