@@ -90,7 +90,7 @@ export const Head = ({ data }) => (
 
 export const query = graphql`
   query ProjectsQuery {
-    allContentfulProject(sort: { updatedAt: DESC }) {
+    allContentfulProject(sort: { updatedAt: ASC }) {
       nodes {
         repository
         shortDescription

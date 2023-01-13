@@ -8,6 +8,7 @@ import { Button } from "../components/styles/reusables"
 import { Background } from "../components/styles/reusables"
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import "../theme/carouselStyles.css"
 import { Seo } from "../components/Seo"
 
@@ -33,6 +34,9 @@ const AboutContainer = styled.div`
   h1 {
     margin: 0;
   }
+  a{
+    color: white;
+  }
 `
 
 const Links = styled.div`
@@ -41,7 +45,6 @@ const Links = styled.div`
   gap: 0.8rem;
   a {
     font-weight: bold;
-    color: white;
   }
 `
 
@@ -68,7 +71,7 @@ const Project = ({ data }) => {
       <Wrapper>
         <AboutContainer>
           <h1>{project.title}</h1>
-          <p>{project.longDescription.longDescription}</p>
+          {documentToReactComponents(JSON.parse(project.longDescription.raw))}
           <h2>Tools and Technologies</h2>
           <TechStack>
             {project.techStack.map((technology) => (
@@ -88,7 +91,7 @@ const Project = ({ data }) => {
           </Links>
           <h2>Images</h2>
         </AboutContainer>
-        <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true}>
+        <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true} interval={5500}>
           {project.images.map((img) => (
             <GatsbyImage
               image={getImage(img.gatsbyImage)}
@@ -120,7 +123,7 @@ export const query = graphql`
       deployedSite
       techStack
       longDescription {
-        longDescription
+        raw
       }
       seoDescription
       images {
