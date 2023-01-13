@@ -8,7 +8,6 @@ export const Seo = ({ title, description, image }) => {
     description: description || defaultDescription,
     image: image || `${siteUrl}${defaultImage}`,
   }
-console.log(seo.image);
   return (
     <>
       <title>{seo.title}</title>
