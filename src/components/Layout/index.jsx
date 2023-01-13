@@ -3,13 +3,10 @@ import { GlobalStyle, Wrapper } from "./style"
 import Navbar from "../Navbar"
 import Footer from "../Footer"
 import { Helmet } from "react-helmet"
-import colors from "../../theme/colors"
 const Layout = ({ children }) => {
   return (
     <>
       <Helmet htmlAttributes={{ lang: "en" }}>
-        <meta name="theme-color" content={`${colors.primary}`} />
-        <meta property="og:image" content="home-page.png" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"

@@ -47,7 +47,12 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage
 
-export const Head = ({ data }) => <Seo title={data.contentfulHome.seoTitle} description={data.contentfulHome.seoDescription}/>
+export const Head = ({ data }) => (
+  <Seo
+    title={data.contentfulHome.seoTitle}
+    description={data.contentfulHome.seoDescription}
+  />
+)
 
 export const IndexPagePageQuery = graphql`
   query {

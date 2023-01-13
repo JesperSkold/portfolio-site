@@ -79,7 +79,7 @@ const ProjectsPage = ({ data }) => {
 
 export default ProjectsPage
 
-export const Head = ({ data }) => <Seo title={data.contentfulProjectsPage.seoTitle} description={data.contentfulProjectsPage.seoDescription}/>
+export const Head = ({ data }) => <Seo title={data.contentfulProjectsPage.seoTitle} description={data.contentfulProjectsPage.seoDescription} />
 
 export const query = graphql`
   query ProjectsQuery {
