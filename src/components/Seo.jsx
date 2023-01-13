@@ -14,6 +14,7 @@ export const Seo = ({ title, description, image }) => {
       <meta name="description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
       <meta name="theme-color" content={`${colors.primary}`} />
+      <meta name="twitter:card" content="summary_large_image" />
     </>
   )
 }

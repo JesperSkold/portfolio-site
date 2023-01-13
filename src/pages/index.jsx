@@ -50,7 +50,7 @@ export default IndexPage
 export const Head = ({ data }) => (
   <Seo
     title={data.contentfulHome.seoTitle}
-    // description={data.contentfulHome.seoDescription}
+    description={data.contentfulHome.seoDescription}
   />
 )
 
