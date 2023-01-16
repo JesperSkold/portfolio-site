@@ -3,7 +3,7 @@ import { GlobalStyle, Wrapper } from "./style"
 import Navbar from "../Navbar"
 import Footer from "../Footer"
 import { Helmet } from "react-helmet"
-const Layout = ({ children }) => {
+const Layout = ({ children, navType }) => {
   return (
     <>
       <Helmet htmlAttributes={{ lang: "en" }}>
@@ -35,7 +35,7 @@ const Layout = ({ children }) => {
       </Helmet>
       <Wrapper>
         <GlobalStyle />
-        <Navbar />
+        <Navbar navType={navType} />
         {children}
       </Wrapper>
       <Footer />

@@ -17,25 +17,25 @@ const Wrapper = styled.div`
   margin: 0 auto;
   h1 {
     text-align: center;
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 16px;
   }
   background: ${colors.primaryTransparent};
-  padding: 0 1.2rem;
-
-  @media (max-width: 750px) {
-    padding: 0;
-  }
+  padding-bottom: 1.2rem;
 `
 
 const AboutContainer = styled.div`
-  @media (max-width: 750px) {
-    padding: 0 1.2rem;
-  }
-  h1 {
-    margin: 0;
-  }
   a{
     color: white;
+  }
+
+  .carousel-root{
+    @media (max-width: 750px) {
+      padding: 0;
+    }
+  }
+  & > * {
+    padding: 0 1.2rem;
   }
 `
 
@@ -63,7 +63,7 @@ const TechStack = styled.div`
 const Project = ({ data }) => {
   const project = data.contentfulProject
   return (
-    <Layout>
+    <Layout navType={colors.primaryTransparent}>
       <Background
         background={data.contentfulSingleProjectPage.backgroundImage.file.url}
         position={"10% 50%"}
@@ -71,6 +71,15 @@ const Project = ({ data }) => {
       <Wrapper>
         <AboutContainer>
           <h1>{project.title}</h1>
+          <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true} interval={5500}>
+          {project.images.map((img) => (
+            <GatsbyImage
+              image={getImage(img.gatsbyImage)}
+              alt={`Image of Jesper's ${project.title} project`}
+              key={img.gatsbyImage}
+            />
+          ))}
+        </Carousel>
           {documentToReactComponents(JSON.parse(project.longDescription.raw))}
           <h2>Tools and Technologies</h2>
           <TechStack>
@@ -89,17 +98,7 @@ const Project = ({ data }) => {
               <Button>GitHub Repository</Button>
             </a>
           </Links>
-          <h2>Images</h2>
         </AboutContainer>
-        <Carousel showThumbs={false} useKeyboardArrows={true} autoPlay={true} interval={5500}>
-          {project.images.map((img) => (
-            <GatsbyImage
-              image={getImage(img.gatsbyImage)}
-              alt={`Image of Jesper's ${project.title} project`}
-              key={img.gatsbyImage}
-            />
-          ))}
-        </Carousel>
       </Wrapper>
     </Layout>
   )

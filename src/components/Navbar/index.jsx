@@ -11,10 +11,10 @@ import {
 import { useState } from "react"
 import Links from "./links"
 
-const Navbar = () => {
+const Navbar = ({navType}) => {
   const [open, setOpen] = useState(false)
   return (
-    <StyledNav>
+    <StyledNav navType={navType}>
       <Title href="/">Jesper Olsson</Title>
         <DesktopLinks>
           <Links></Links>

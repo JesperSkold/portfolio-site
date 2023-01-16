@@ -2,7 +2,7 @@ import styled from "styled-components"
 import colors from "../../theme/colors"
 
 export const StyledNav = styled.nav`
-  background: ${colors.primary};
+  background: ${({ navType }) => navType ? navType : colors.primary};
   padding: 2rem 3rem;
   display: flex;
   justify-content: space-between;
