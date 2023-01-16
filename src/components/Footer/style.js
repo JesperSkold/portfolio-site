@@ -1,8 +1,6 @@
 import styled from "styled-components"
-import colors from "../../theme/colors"
 
 export const StyledFooter = styled.footer`
-  /* background: ${colors.secondary}; */
   color: white;
   display: flex;
   flex-direction: column;
