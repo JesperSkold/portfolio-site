@@ -9,7 +9,7 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     title: `Jesper Olsson - Portfolio`,
-    siteUrl: `https://jesperolsson.gatsbyjs.io`,
+    siteUrl: `https://jesperolsson.netlify.app`,
     description: "Jesper Olsson's portfolio",
     defaultImage: "/home-page.png"
   },
