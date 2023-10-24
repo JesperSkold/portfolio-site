@@ -21,6 +21,7 @@ module.exports = {
         "spaceId": process.env.CONTENTFUL_SPACE_ID
       },
     },
+    "gatsby-plugin-netlify",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
